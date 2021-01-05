@@ -2,6 +2,8 @@ class WorkerSkillsController < ApplicationController
 
     def new
         @workerskill = WorkerSkill.new
+        @workers = Worker.all
+        @skills = Skill.all
     end
 
     def create

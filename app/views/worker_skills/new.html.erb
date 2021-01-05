@@ -1,0 +1,12 @@
+<h1>Add a New Skill!</h1>
+<%= form_for @workerskill do |f| %>
+<%= f.label "Worker" %><br>
+<%= f.collection_select :worker_id, @workers, :id, :name%><br>
+<%= f.label "Skill" %><br>
+<%= f.collection_select :skill_id, @skills, :id, :name %><br>
+<%= f.submit %>
+<% end %><br><br>
+
+<h3>OR If you want to:</h3>
+<%=button_to "Back to All workers", workers_path, method: :get %><br>
+

@@ -3,3 +3,5 @@
 <p>Pay: <%= @task.cost %>
 <p>Accepted? <%= @task.accepted %>
 <p>Completed? <%= @task.completed %>
+
+<%= button_to 'Add to Schedule', schedule_path(@task.worker.schedule), method: :get %>
