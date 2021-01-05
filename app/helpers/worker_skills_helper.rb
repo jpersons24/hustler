@@ -1,0 +1,2 @@
+module WorkerSkillsHelper
+end
