@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :worker_skills
-  resources :skills
-  resources :schedules
-  resources :reviews
+  resources :worker_skills, only: [:new, :create]
+  resources :skills, except: [:destroy]
+  resources :schedules, except: [:index]
+  resources :reviews, except: [:show]
   resources :tasks
   resources :workers
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end

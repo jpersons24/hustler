@@ -1,0 +1,11 @@
+<h3>These are all the skills!</h3>
+
+<div>
+   <ul>
+      <% @skills.each do |skill| %>
+         <li><%= link_to skill.name, skill_path(skill) %></li>
+      <% end %>
+   </ul>
+</div>
+
+<%= button_to 'New Skill', new_skill_path, method: :get %>

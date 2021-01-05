@@ -1,0 +1,11 @@
+<h3>These are all the workers!</h3>
+
+<div>
+   <ul>
+      <% @workers.each do |worker| %>
+         <li><%= link_to worker.name, worker_path(worker) %></li>
+      <% end %>
+   </ul>
+</div>
+
+<%= button_to 'New Worker', new_worker_path, method: :get %>
