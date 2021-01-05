@@ -7,6 +7,8 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
+        @users = User.all
+        @worker = Worker.all
     end
 
     def create
@@ -20,6 +22,8 @@ class ReviewsController < ApplicationController
     end
 
     def edit
+        @users = User.all
+        @worker = Worker.all
     end
 
     def update

@@ -25,6 +25,8 @@ class TasksController < ApplicationController
     end
 
     def edit
+        @users = User.all
+        @workers = Worker.all
     end
 
     def update

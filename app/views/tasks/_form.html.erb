@@ -5,8 +5,18 @@
 <% end %>
 
 <%= form_for @task do |f| %>
+<%= f.label :user %><br>
+<%= f.collection_select :user_id, @users, :id, :name %><br>
+<%= f.label :worker %><br>
+<%= f.collection_select :worker_id, @workers, :id, :name %><br>
 <%= f.label :description %><br>
 <%= f.text_field :description %><br>
+<%= f.label "Posting Date:" %><br>
+<%= f.date_select :date %><br>
+<%= f.label :time %><br>
+<%= f.time_select :time %><br>
+<%= f.label :deadline %><br>
+<%= f.datetime_select :deadline %><br>
 <%= f.label :cost %><br>
 <%= f.number_field :cost, in: 1..1000 %><br><br>
 <%= f.submit %>

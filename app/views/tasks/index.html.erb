@@ -1,9 +1,17 @@
-<h1>All Tasks!</h1>
-<ul>
-<% @tasks.each do |t| %>
-<li><%= link_to t.description, task_path(t) %></li>
-<% end %>
-</ul>
-<br><br>
+<h3>There are all the tasks!</h3>
+<div>
+    <ul>
+        <% @tasks.each do |t| %>
+            <li><%= link_to t.description, task_path(t) %></li>
+        <% end %>
+    </ul>
+</div><br><br>
 
-<%= button_to "New Task", new_task_path, method: :get %>
+<br><br><br>
+ <%# THE FOLLOWING BUTTONS ARE ALL FOR CONVINENCES DURING DEVELOPMENT%>
+ <%# CAN BE DELETE AFTER WE ARE DONE%>
+<%= button_to "New Task", new_task_path, method: :get %><br><br>
+<%= button_to "See All Users", users_path, method: :get %><br><br>
+<%= button_to "See All Workers", workers_path, method: :get %><br><br>
+<%= button_to "See All Reviews", reviews_path, method: :get %><br><br>
+<%= button_to "See All Skills", skills_path, method: :get %><br><br>

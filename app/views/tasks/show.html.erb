@@ -1,7 +1,7 @@
 <h1><%= @task.description %></h1>
-<p>By: <%= @task.user.name%></p>
-<p>Pay: <%= @task.cost %>
-<p>Accepted? <%= @task.accepted %>
-<p>Completed? <%= @task.completed %>
-
-<%= button_to 'Add to Schedule', schedule_path(@task.worker.schedule), method: :get %>
+<p>Hosted By: <%= @task.user.name%></p>
+<p>Posted on: <%= @task.date %> @ <%= @task.time %></p>
+<p>Task's Deadline: <%= @task.deadline %></p>
+<p>Accepted? <%= @task.accepted %></p>
+<p>Completed? <%= @task.completed %></p>
+<p>Pay: <%= @task.cost %></p><br><br>

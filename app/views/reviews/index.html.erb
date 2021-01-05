@@ -1,0 +1,21 @@
+<h3>These are all the reviews!</h3>
+<div>
+    <ul>
+        <% @reviews.each do |r|%>
+            <p><%= r.title %></p>
+            <li><%= r.content %></li>
+        <% end %>
+    </ul>
+</div>
+
+
+
+
+<br><br><br>
+ <%# THE FOLLOWING BUTTONS ARE ALL FOR CONVINENCES DURING DEVELOPMENT%>
+ <%# CAN BE DELETE AFTER WE ARE DONE%>
+<%= button_to "New Task", new_task_path, method: :get %><br><br>
+<%= button_to "See All Users", users_path, method: :get %><br><br>
+<%= button_to "See All Workers", workers_path, method: :get %><br><br>
+<%= button_to "See All Reviews", reviews_path, method: :get %><br><br>
+<%= button_to "See All Skills", skills_path, method: :get %><br><br>
