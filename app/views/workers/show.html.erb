@@ -1,6 +1,21 @@
 <h3>This is <%= @worker.name %>'s page!</h3>
-
+<img src="<%= @worker.photo %>" alt="<%= @worker.name %>">
+<h5><%= @worker.bio %></h5>
+<h5><%= @worker.age %></h5>
+<h5>Reviews:</h5>
+<% if @worker.review.length < 1 %>
+    <p>No Reviews by this worker yet!</p>
+<% else %>
+    <ul>
+    <% @worker.review.each do |r| %>
+    <li><%= r.title %></li><br>
+    <li><%= r.content %></li>
+    <% end %>
+    </ul>
+<% end %><br><br>
 <%= button_to 'Edit Worker', edit_worker_path(@worker), method: :get %>
 <br><br>
 <%= button_to "Add a Skill", new_workerskill_path, method: :get %>
-<%= button_to "See all Tasks", tasks_path, method: :get %>
+<%= button_to "See all Tasks", tasks_path, method: :get %><br><br>
+<p>Thinking about deleting this User?</p>
+<%= button_to "Delete Worker",  worker_path(@worker), method: :delete%>

@@ -1,5 +1,5 @@
 <h3>This is <%= @user.name %>'s page!</h3>
-<h5><%= @user.photo %></h5>
+<img src="<%= @user.photo %>" alt="<%= @user.name %>">
 <h5>Bio: <%= @user.bio %></h5>
 <h5>Reviews:</h5>
 <% if @user.review.length < 1 %>

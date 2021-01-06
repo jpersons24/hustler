@@ -4,5 +4,5 @@ class Review < ApplicationRecord
     
     validates :title, :content, presence: true
     validates :title, length: {maximum: 50}
-    validates :content, length: {minimum: 50}
+    validates :content, length: {minimum: 30}
 end
