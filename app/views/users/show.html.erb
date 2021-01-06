@@ -1,18 +1,27 @@
 <h3>This is <%= @user.name %>'s page!</h3>
+
 <img src="<%= @user.photo %>" alt="<%= @user.name %>">
+
 <h5>Bio: <%= @user.bio %></h5>
+
 <h5>Reviews:</h5>
-<% if @user.review.length < 1 %>
+
+<% if @user.reviews.length < 1 %>
     <p>No Reviews by this User yet!</p>
 <% else %>
     <ul>
-    <% @user.review.each do |r| %>
-    <li><%= r.title %></li><br>
-    <li><%= r.content %></li>
-    <% end %>
+        <% @user.reviews.each do |r| %>
+            <li><%= r.title %></li><br>
+            <li><%= r.content %></li>
+        <% end %>
     </ul>
-<% end %><br><br>
+<% end %> 
+
+<br><br>
+
 <%= button_to 'Edit User', edit_user_path(@user), method: :get %>
+
 <br><br><br>
+
 <p>Thinking about deleting this User?</p>
 <%= button_to "Delete User",  user_path(@user), method: :delete%>

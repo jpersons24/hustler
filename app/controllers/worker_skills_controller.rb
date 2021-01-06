@@ -12,7 +12,7 @@ class WorkerSkillsController < ApplicationController
             redirect_to worker_path(@workerskill.worker)
         else
             flash[:errors] = @workerskill.errors.full_messages
-            redirect_to new_workerskill_path
+            redirect_to new_worker_skill_path
         end
     end
 end

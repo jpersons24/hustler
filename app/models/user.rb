@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates :name, :username, :password, presence: true
     validates :name, :username, uniqueness: true
     validates :name, length: {minimum: 3}
-    validates :bio, length: {maximum: 50}
+    validates :bio, length: {maximum: 250}
     validates :password, length: { in: 5..20}
     
     has_secure_password

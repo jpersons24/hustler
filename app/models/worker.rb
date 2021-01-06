@@ -9,7 +9,7 @@ class Worker < ApplicationRecord
     validates :name, :username, :password, presence: true
     validates :name, :username, uniqueness: true
     validates :name, length: {minimum: 3}
-    validates :bio, length: {maximum: 50}
+    validates :bio, length: {maximum: 250}
     validates :age, numericality: { greater_than_or_equal_to: 18, less_than_or_euqal_to: 120}
 
     has_secure_password
