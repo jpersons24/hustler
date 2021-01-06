@@ -2,9 +2,16 @@
 
 <img src="<%= @worker.photo %>" alt="<%= @worker.name %>">
 
-<h5><%= @worker.bio %></h5>
+<h5>Bio: <%= @worker.bio %></h5>
 
-<h5><%= @worker.age %></h5>
+<h5>Age: <%= @worker.age %></h5>
+
+<h5>Skills: </h5>
+    <% @worker.skills.each do |s| %>
+        <ul>
+            <li><%= s.name %> | <%= s.category %></li>
+        </ul>
+    <% end %>
 
 <h5>Reviews:</h5>
     <% if @worker.reviews.length < 1 %>

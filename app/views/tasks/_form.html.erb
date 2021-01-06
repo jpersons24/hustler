@@ -9,16 +9,18 @@
 <%= f.collection_select :user_id, @users, :id, :name %><br>
 <%= f.label :worker %><br>
 <%= f.collection_select :worker_id, @workers, :id, :name %><br>
+<%= f.label "Skills:" %>
+<%= f.collection_select :skill_id, @skills, :id, :name %> <br>
 <%= f.label :description %><br>
-<%= f.text_field :description %><br>
+<%= f.text_area :description %><br>
 <%= f.label "Posting Date:" %><br>
-<%= f.date_select :date %><br>
+<%= f.datetime_select :date %><br>
 <%= f.label :time %><br>
-<%= f.time_select :time %><br>
+<%= f.number_field :time, in: 0..12 %><br>
 <%= f.label :deadline %><br>
 <%= f.datetime_select :deadline %><br>
 <%= f.label :cost %><br>
-<%= f.number_field :cost, in: 1..1000 %><br><br>
+$<%= f.number_field :cost, in: 1..1000 %><br><br>
 <%= f.submit %>
 <% end %><br>
 <%= button_to "Back to All Tasks", tasks_path, method: :get %>

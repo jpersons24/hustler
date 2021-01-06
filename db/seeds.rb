@@ -8,8 +8,28 @@
 
 puts "Destroy everything!"
 User.destroy_all
+Worker.destroy_all
+Skill.destroy_all
+WorkerSkill.destroy_all
 
+puts "Creating Users!"
+5.times do
+   User.create(name: Faker::FunnyName.name, username: Faker::Games::Zelda.character, password: "abc123")
+end
 
-10.times do
-   User.create(name: , username: , password: , bio: , photo: )
+puts "Creating Workers!"
+5.times do 
+   Worker.create(name: Faker::FunnyName.name, username: Faker::Games::SuperSmashBros.fighter, password: "abc123", age: rand(18..100))
+end
+
+puts "Learning skills!"
+Skill.create(name: "Painter", category: "Art")
+Skill.create(name: "Graphic Design", category: "Technology")
+Skill.create(name: "Carpenter", category: "Construction")
+Skill.create(name: "Chef", category: "Cooking")
+Skill.create(name: "Analytics", category: "Data Science")
+
+puts "Workers learning skills!"
+5.times do 
+   WorkerSkill.create(skill_id: Skill.all.sample.id, worker_id: Worker.all.sample.id)
 end

@@ -12,6 +12,7 @@ class TasksController < ApplicationController
         @task = Task.new
         @users = User.all
         @workers = Worker.all
+        @skills = Skill.all
     end
 
     def create

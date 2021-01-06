@@ -1,3 +1,15 @@
 <h1> New Task Form!! </h1>
 
+<ul>
+   <% Worker.all.each do |worker| %>
+      <li><b><%= worker.name %></b>
+         <ul>
+            <% worker.skills.each do |skill| %>
+               <li><i><%= skill.name %></i></li>
+            <% end %>
+         </ul>
+      </li>
+   <% end %>
+</ul>
+
 <%= render 'form' %>

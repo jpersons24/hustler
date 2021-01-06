@@ -15,4 +15,10 @@ class WorkerSkillsController < ApplicationController
             redirect_to new_worker_skill_path
         end
     end
+
+    private
+
+    def workerskill_params(*args)
+        params.require(:worker_skill).permit(*args)
+    end
 end
