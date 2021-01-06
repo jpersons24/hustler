@@ -5,3 +5,21 @@
 <p>Accepted? <%= @task.accepted %></p>
 <p>Completed? <%= @task.completed %></p>
 <p>Pay: <%= @task.cost %></p><br><br>
+
+
+<h1><%= @task.user.name %>'s Request</h1>
+
+<div>
+   <h3><strong>Task requested:</strong></h3> <br>
+   <p><%= @task.description %></p> <br>
+   <h3><strong>Compensation amount:</strong></h3> <br>
+   <p><%= @task.cost %></p>
+   <h3><strong>Deadline:</strong></h3> <br>
+   <p><%= @task.deadline %></p>
+   accepted?
+   completed?
+   worker?
+</div>
+
+
+CHANGE DATE DATA TYPE TO JUST DATE WITH NO TIME!!!!
