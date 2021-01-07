@@ -5,7 +5,7 @@
 <% end %>
 
 <%= form_for @review do |f| %>
-<%= f.label '"Employee":' %><br>
+<%= f.label "Employee:" %><br>
 <%= f.collection_select :user_id, @users, :id, :name %><br>
 <%= f.label "Worker:" %><br>
 <%= f.collection_select :worker_id, @workers, :id, :name %><br>

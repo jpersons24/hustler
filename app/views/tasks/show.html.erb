@@ -4,7 +4,7 @@
    <h3><strong>Task requested:</strong></h3> <br>
    <p><%= @task.description %></p> <br>
    <h3><strong>Compensation amount:</strong></h3> <br>
-   <p><%= @task.cost %></p>
+   <p>$<%= @task.cost %></p>
    <h3><strong>Deadline:</strong></h3> <br>
    <p><%= @task.deadline %></p>
    <h3><strong>Accepted? <%= @task.accepted %></strong></h3> <br>
@@ -21,11 +21,17 @@
 
 <div>
    <h3>Task Status:</h3>
+   <p>Accepted?</p>
    <%= form_for @task, method: :put do |f| %>
       <%= f.radio_button :accepted, "Yes" %>
       <%= f.label "Yes" %>
       <%= f.radio_button :accepted, "No" %>
       <%= f.label "No" %>
+      <%= f.submit %>
+   <% end %>
+
+   <p>Completed?</p>
+   <%= form_for @task, method: :put do |f| %>
       <%= f.radio_button :completed, "Yes" %>
       <%= f.label "Yes" %>
       <%= f.radio_button :completed, "No" %>

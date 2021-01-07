@@ -1,14 +1,17 @@
 class ReviewsController < ApplicationController
-    before_action :find_review, only: [:edit, :update, :destroy]
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
 
     def index
         @reviews = Review.all
     end
 
+    def show
+    end
+
     def new
         @review = Review.new
         @users = User.all
-        @worker = Worker.all
+        @workers = Worker.all
     end
 
     def create
@@ -42,7 +45,7 @@ class ReviewsController < ApplicationController
 
     private
     def review_params(*args)
-        params.require(:review).premit(*args)
+        params.require(:review).permit(*args)
     end
 
     def find_review
