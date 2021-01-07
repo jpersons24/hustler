@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_213052) do
+ActiveRecord::Schema.define(version: 2021_01_06_232528) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_213052) do
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "deadline"
+    t.date "deadline"
     t.integer "skill_id"
   end
 
