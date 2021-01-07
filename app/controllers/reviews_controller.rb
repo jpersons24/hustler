@@ -1,11 +1,8 @@
 class ReviewsController < ApplicationController
-    before_action :find_review, only: [:show, :edit, :update, :destroy]
+    before_action :find_review, only: [:edit, :update, :destroy]
 
     def index
-        @reviews = Review.all
-    end
-
-    def show
+        @reviews = @current_user.reviews
     end
 
     def new
@@ -15,9 +12,9 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.create(review_params(:user_id, :worker_id, :title, :content))
+        @review = @current_user.reviews.create(review_params(:user_id, :worker_id, :title, :content))
         if @review.valid?
-            redirect_to review_path(@review)
+            redirect_to worker_path(@review.worker)
         else
             flash[:errors] = @review.errors.full_messages
             redirect_to new_review_path
@@ -27,6 +24,7 @@ class ReviewsController < ApplicationController
     def edit
         @users = User.all
         @worker = Worker.all
+        @user = @current_user
     end
 
     def update
@@ -39,6 +37,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        @user = @current_user
         @review.destroy
         redirect_to reviews_path
     end

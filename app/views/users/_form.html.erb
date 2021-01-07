@@ -10,13 +10,12 @@
    <%= f.label "Username:" %>
    <%= f.text_field :username %> <br>
    <%= f.label "Password:" %>
-   <%= f.text_field :password %> <br>
+   <%= f.password_field :password %> <br>
    <%= f.label "Bio:" %>
    <%= f.text_area :bio %> <br>
-   <%= f.label "Photo (Please give photo url):" %>
-   <%= f.text_field :photo %> <br>
    <%= f.submit %>
 <% end %>
+
 <br><br><br>
 <p>OR If you would like to?</p>
 <%= button_to "Back to All Users", users_path, method: :get %><br>

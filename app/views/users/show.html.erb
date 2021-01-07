@@ -1,7 +1,5 @@
 <h3>This is <%= @user.name %>'s page!</h3>
 
-<img src="<%= @user.photo %>" alt="<%= @user.name %>">
-
 <h5>Bio: <%= @user.bio %></h5>
 
 <h5>Reviews:</h5>
@@ -17,32 +15,25 @@
     </ul>
 <% end %> 
 
-<br><br>
-
-<%= button_to 'Edit User', edit_user_path(@user), method: :get %>
-
-<br><br><br>
-
+<br>
 <%= button_to "New Task", new_task_path, method: :get %>
 
-<br><br>
-
+<br>
 <div>
     <p><i><%= @user.name %> task history:</i></p>
         <ul>
             <% @user.tasks.each do |task| %>
-                <li><%= task.worker %></li>
-                <li><%= task.skill.name %> | <%= task.skill.category %></li>
-                <li><%= task.description %></li>
-                <li><%= task.cost %></li>
-                <li><%= task.deadline %></li>
-                <li><%= task.accepted %></li>
-                <li><%= task.completed %></li>
+                <li>Worker: <%= link_to task.worker.name, worker_path(task.worker) %></li>
+                <li>Skill: <%= task.skill.name %>
+                <li>Description: <%= task.description %></li>
+                <li>Cost: $<%= task.cost %></li>
+                <li>Deadline: <%= task.deadline %></li>
+                <li>Completed? <%= task.completed %></li>
             <% end %>
         </ul>
 </div>
 
-<br><br>
-
-<p>Thinking about deleting this User?</p>
+<br>
+<%= button_to 'Edit User', edit_user_path(@user), method: :get %>
+<br>
 <%= button_to "Delete User",  user_path(@user), method: :delete%>

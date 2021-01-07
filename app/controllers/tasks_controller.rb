@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :find_task, only: [:show, :edit, :update, :destroy]
 
     def index
-        @tasks = Task.all
+        @tasks = @current_user.tasks
     end
 
     def show
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     end
 
     def create
-        @task = Task.create(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :accepted, :completed, :deadline))
+        @task = @current_user.tasks.create(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :completed, :deadline))
         if @task.valid?
             redirect_to task_path(@task)
         else
@@ -25,10 +25,11 @@ class TasksController < ApplicationController
     def edit
         @users = User.all
         @workers = Worker.all
+        @user = @current_user
     end
 
     def update
-        if @task.update(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :accepted, :completed, :deadline))
+        if @task.update(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :completed, :deadline))
             redirect_to task_path(@task)
         else
             flash[:errors] = @task.errors.full_messages
@@ -37,8 +38,9 @@ class TasksController < ApplicationController
     end
     
     def destroy
+        @user = @current_user
         @task.destroy
-        redirect_to tasks
+        redirect_to tasks_path
     end
 
     private

@@ -1,18 +1,15 @@
 <h3>This is <%= @worker.name %>'s page!</h3>
 
-<img src="<%= @worker.photo %>" alt="<%= @worker.name %>">
-
 <h5>Bio: <%= @worker.bio %></h5>
-
-<h5>Age: <%= @worker.age %></h5>
 
 <h5>Skills:</h5>
     <% @worker.worker_skills.each do |ws| %>
         <ul>
-            <li><%= link_to ws.skill.name, skill_path(ws.skill) %> | <%= ws.skill.category %> | Remove this skill?
-            <%= button_to "Remove", worker_skill_path(ws) , method: :delete %></li>
+            <li><%= link_to ws.skill.name, skill_path(ws.skill) %> | Remove this skill?
+            <%= button_to "Remove", worker_skill_path(ws) , method: :delete %></li> <br>
         </ul>
     <% end %>
+            <%= button_to "Add a Skill", new_worker_skill_path, method: :get %>
 
 <h5>Tasks:</h5>
     <% @worker.tasks.each do |t|%>
@@ -23,32 +20,22 @@
 
 <h5>Reviews:</h5>
     <% if @worker.reviews.length < 1 %>
-        <p>No Reviews by this worker yet!</p>
+        <p>No Reviews for this worker yet!</p>
     <% else %>
         <ul>
             <% @worker.reviews.each do |r| %>
-                <li><%= r.title %></li><br>
-                <li><%= r.content %></li>
+                <div>
+                    <li><em><%= r.title %></em> - <%= r.content %></li>
+                    <%# button_to 'Remove Review', method: :delete %>
+                </div>
             <% end %>
         </ul>
     <% end %>
+<br>
+<%= button_to 'Add Review', new_review_path, method: :get %>
 
-<br><br>
-
+<br>
 <%= button_to 'Edit Worker', edit_worker_path(@worker), method: :get %>
 
-<br><br>
-
-<%= button_to "Add a Skill", new_worker_skill_path, method: :get %>
-
-
-<br><br>
-
-<%= button_to "See all Tasks", tasks_path, method: :get %>
-
-<br><br>
-
-<%= button_to "See All Workers", workers_path, method: :get %><br><br>
-
-<p>Thinking about deleting this User?</p>
-<%= button_to "Delete Worker",  worker_path(@worker), method: :delete%>
+<br>
+<%= button_to "Delete",  workers_path, method: :delete%>

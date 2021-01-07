@@ -7,15 +7,7 @@
 <%= form_for @worker do |f| %>
    <%= f.label "Name:" %>
    <%= f.text_field :name %> <br>
-   <%= f.label "Username:" %>
-   <%= f.text_field :username %> <br>
-   <%= f.label "Password:" %>
-   <%= f.text_field :password %> <br>
    <%= f.label "Bio:" %>
    <%= f.text_area :bio %> <br>
-   <%= f.label "Age:" %>
-   <%= f.number_field :age %> <br>
-   <%= f.label "Photo (Please give photo url):" %>
-   <%= f.text_field :photo %> <br>
    <%= f.submit %>
 <% end %>

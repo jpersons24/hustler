@@ -13,7 +13,7 @@ class WorkersController < ApplicationController
     end
 
     def create
-        @worker = Worker.create(worker_params(:name, :username, :password, :age, :photo, :bio))
+        @worker = Worker.create(worker_params(:name, :bio))
         if @worker.valid?
             redirect_to worker_path(@worker)
         else
@@ -26,7 +26,7 @@ class WorkersController < ApplicationController
     end
 
     def update
-        if @worker.update(worker_params(:name, :username, :password, :age, :photo, :bio))
+        if @worker.update(worker_params(:name, :bio))
             redirect_to worker_path(@worker)
         else
             flash[:errors] = @worker.errors.full_messages
