@@ -16,6 +16,12 @@ class WorkerSkillsController < ApplicationController
         end
     end
 
+    def destroy
+        @workerskill = WorkerSkill.find(params[:id])
+        @workerskill.destroy
+        redirect_to worker_path(@workerskill.worker)
+    end
+
     private
 
     def workerskill_params(*args)

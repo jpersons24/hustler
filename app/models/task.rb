@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :user
-    belongs_to :worker
+    belongs_to :worker, optional: true
     belongs_to :skill
 
     validates :description, :cost, presence: true

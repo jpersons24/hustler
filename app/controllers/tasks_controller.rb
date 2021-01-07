@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     end
 
     def create
-        @task = Task.create(task_params(:user_id, :worker_id, :description, :cost, :accepted, :completed))
+        @task = Task.create(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :accepted, :completed, :deadline))
         if @task.valid?
             redirect_to task_path(@task)
         else
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     end
 
     def update
-        if @task.update(task_params(:user_id, :worker_id, :description, :cost, :accepted, :completed))
+        if @task.update(task_params(:user_id, :worker_id, :skill_id, :description, :cost, :accepted, :completed, :deadline))
             redirect_to task_path(@task)
         else
             flash[:errors] = @task.errors.full_messages

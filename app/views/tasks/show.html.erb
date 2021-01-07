@@ -1,12 +1,3 @@
-<h1><%= @task.description %></h1>
-<p>Hosted By: <%= @task.user.name%></p>
-<p>Posted on: <%= @task.date %> @ <%= @task.time %></p>
-<p>Task's Deadline: <%= @task.deadline %></p>
-<p>Accepted? <%= @task.accepted %></p>
-<p>Completed? <%= @task.completed %></p>
-<p>Pay: <%= @task.cost %></p><br><br>
-
-
 <h1><%= @task.user.name %>'s Request</h1>
 
 <div>
@@ -16,10 +7,31 @@
    <p><%= @task.cost %></p>
    <h3><strong>Deadline:</strong></h3> <br>
    <p><%= @task.deadline %></p>
-   <h3><strong>Accepted?</strong></h3> <br>
-   <h3><strong>Completed?</strong></h3> <br>
+   <h3><strong>Accepted? <%= @task.accepted %></strong></h3> <br>
+   <h3><strong>Completed? <%= @task.completed %></strong></h3> <br>
    <h3><strong>Worker:</strong></h3>
-   <p><%= @task.worker.name %></p>
+      <% if @task.worker %>
+         <p><%= @task.worker.name %></p>
+      <% else %>
+         <p>This task has not been accepted yet!</p>
+      <% end %>
+   
+   
+</div>
+
+<div>
+   <h3>Task Status:</h3>
+   <%= form_for @task, method: :put do |f| %>
+      <%= f.radio_button :accepted, "Yes" %>
+      <%= f.label "Yes" %>
+      <%= f.radio_button :accepted, "No" %>
+      <%= f.label "No" %>
+      <%= f.radio_button :completed, "Yes" %>
+      <%= f.label "Yes" %>
+      <%= f.radio_button :completed, "No" %>
+      <%= f.label "No" %>
+      <%= f.submit %>
+   <% end %>
 </div>
 
 

@@ -6,10 +6,18 @@
 
 <h5>Age: <%= @worker.age %></h5>
 
-<h5>Skills: </h5>
-    <% @worker.skills.each do |s| %>
+<h5>Skills:</h5>
+    <% @worker.worker_skills.each do |ws| %>
         <ul>
-            <li><%= s.name %> | <%= s.category %></li>
+            <li><%= link_to ws.skill.name, skill_path(ws.skill) %> | <%= ws.skill.category %> | Remove this skill?
+            <%= button_to "Remove", worker_skill_path(ws) , method: :delete %></li>
+        </ul>
+    <% end %>
+
+<h5>Tasks:</h5>
+    <% @worker.tasks.each do |t|%>
+        <ul>
+            <li><%= link_to t.description, task_path(t) %> @ <%= t.deadline %></li>        
         </ul>
     <% end %>
 
@@ -33,11 +41,14 @@
 
 <%= button_to "Add a Skill", new_worker_skill_path, method: :get %>
 
+
 <br><br>
 
 <%= button_to "See all Tasks", tasks_path, method: :get %>
 
 <br><br>
+
+<%= button_to "See All Workers", workers_path, method: :get %><br><br>
 
 <p>Thinking about deleting this User?</p>
 <%= button_to "Delete Worker",  worker_path(@worker), method: :delete%>
