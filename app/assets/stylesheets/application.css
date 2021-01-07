@@ -14,22 +14,26 @@
  *= require_self
  */
 
- .nav-bar {
-    width: 100%;
- }
+body {
+   background-color: rgba(214, 209, 209, 0.753);
+}
 
- .nav-list {
+.nav-bar {
+   width: 100%;
+}
+
+.nav-list {
    position: fixed;
    top: 0;
    width: 95%;
    z-index: 2000;
-   background-color: black;
+   background-color: rgb(17, 133, 13);
    border-style: groove;
-   border-color: #c72121c4;
+   border-color: #fffc5de0;
    border-radius: 15px;
- }
+}
 
- .nav-tabs {
+.nav-tabs {
    color: white;
    font-family: 'Audiowide', cursive;
    display: inline-block;
@@ -37,6 +41,11 @@
    font-size: 15px;
    margin-left: 15px;
    padding: 0px 20px;
+}
+
+.logo {
+   font-size: 40px;
+
 }
 
 .nav-list li {
@@ -47,6 +56,13 @@
 .nav-list li a:visited {
    text-decoration: none;
    color: white;
+}
+
+.right {
+   text-decoration: none;
+   float: right;
+   padding-top: 25px;
+   padding-right: 40px;
 }
 
 .container {

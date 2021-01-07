@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_232528) do
+ActiveRecord::Schema.define(version: 2021_01_07_153908) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_232528) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_232528) do
     t.integer "worker_id"
     t.text "description"
     t.integer "cost"
-    t.boolean "accepted", default: false
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_232528) do
     t.string "username"
     t.string "password_digest"
     t.text "bio"
-    t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,10 +57,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_232528) do
 
   create_table "workers", force: :cascade do |t|
     t.string "name"
-    t.string "username"
-    t.string "password_digest"
-    t.integer "age"
-    t.string "photo"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
