@@ -69,4 +69,109 @@ body {
 
 .container {
    margin-top: 100px;
+   padding-left: 40px;
+}
+
+.sw-container {
+   background-color: #eb801cbd;
+   border-style: ridge;
+   border-color: #eb801ce0;
+   border-radius: 30px;
+   margin-right: 150px;
+   margin-bottom: 25px;
+}
+
+.sw-home-list {
+   list-style-type: none;
+}
+
+.sw-home-list li a:visited {
+   color: white;
+}
+
+.skill-name {
+   padding: 15px 0px;
+}
+
+.skill-name a {
+   /* padding: 15px 0px; */
+   margin-left: 30px;
+   color: white;
+}
+
+.skill-name a:visited {
+   color: white;
+}
+
+.worker-name {
+   padding: 10px 0px;
+   padding-left: 15px;
+}
+
+.worker-name a {
+   padding: 10px 0px;
+   padding-left: 15px;
+}
+
+.worker-name a:visited {
+   color: white;
+}
+
+.sw-list {
+   list-style-type: none;
+}
+
+.sw-list a {
+   color: white;
+   padding: 10px 0px;
+   padding-left: 15px;
+}
+
+.sw-list a:visited {
+   color: white;
+}
+
+.sw-container-ssp {
+   background-color: #eb801cbd;
+   border-style: ridge;
+   border-color: #eb801ce0;
+   border-radius: 30px;
+   margin-right: 150px;
+   margin-bottom: 25px;
+   margin-right: 900px;
+}
+
+.user-sp-container {
+   background-color: #eb801cbd;
+   border-style: ridge;
+   border-color: #eb801ce0;
+   border-radius: 30px;
+   margin-bottom: 20px;
+   padding-bottom: 15px;
+}
+
+.user-sp-container h2 {
+   text-decoration: underline;
+   padding-left: 15px;
+}
+
+#user-bio {
+   padding: 10px 15px;
+}
+
+#review-content {
+   font-size: 12px;
+   padding: 10px 25px;
+}
+
+.user-sp-container h3 {
+   padding-left: 25px;
+}
+
+.review-containter {
+   border-style: ridge;
+   border-color: white;
+   border-radius: 30px;
+   margin: 5px 15px;
+   background-color: rgb(101, 146, 228);
 }

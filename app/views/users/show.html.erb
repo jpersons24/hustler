@@ -1,26 +1,31 @@
-<h2><%= @user.name %></h2>
+<h1><%= @user.name %></h1>
 
-<p>Bio: <%= @user.bio %></p>
+<div class="user-sp-container">
+    <h2>Bio:</h2>
+    <p id="user-bio"><%= @user.bio %></p>
+</div>
 
-<h4>Reviews:</h4>
+<div class="user-sp-container">
+    <h2>Reviews:</h2>
 
-<% if @user.reviews.length < 1 %>
-    <p>No Reviews by this User yet!</p>
-<% else %>
-    <ul>
+    <% if @user.reviews.length < 1 %>
+        <p>No Reviews by this User yet!</p>
+    <% else %>
         <% @user.reviews.each do |r| %>
-            <li><%= r.title %></li><br>
-            <li><%= r.content %></li>
+            <div class="review-containter">
+                <h3><%= r.title %></h3>
+                <p id="review-content"><%= r.content %></p><br>
+            </div>
         <% end %>
-    </ul>
-<% end %> 
+    <% end %> 
+</div>
 
 <br>
 <%= button_to "New Task", new_task_path, method: :get %>
 
 <br>
-<div>
-    <h4><%= @user.name %> task history:</h4>
+<div class="user-sp-container">
+    <h2><%= @user.name %> task history:</h2>
         <ul>
             <% @user.tasks.each do |task| %>
                 <li>Worker: <%= link_to task.worker.name, worker_path(task.worker) %></li>

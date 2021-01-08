@@ -1,0 +1,19 @@
+<h1>Welcome to Hustler!</h1>
+
+<p>Check out our list of skills and the correspoding workers that can help with your desired tasks:</p>
+
+<div>
+   <ul class="sw-home-list">
+   <% @skills.each do |skill| %>
+         <div class="sw-container">
+            <li class="skill-name"><%= link_to skill.name, skill_path(skill) %>
+               <ul class="sw-home-list">
+                  <% skill.workers.each do |worker| %>
+                     <li class="worker-name"><%= worker.name %></li>
+                  <% end %>
+               </ul>
+            </li>
+         </div>
+   <% end %>
+   </ul>
+</div>

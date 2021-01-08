@@ -1,3 +1,12 @@
-<h3>This is the page for <%= @skill.name %>!</h3>
+<h1><%= @skill.name %>!</h1>
 
+<div class="sw-container-ssp">
+   <ul class="sw-list">
+        <% @skill.workers.each do |w| %>
+            <li><%= link_to w.name, worker_path(w) %></li>
+        <% end %>
+   </ul>
+</div>
+
+<br>
 <%= button_to 'Edit Skill', edit_skill_path(@skill), method: :get %>

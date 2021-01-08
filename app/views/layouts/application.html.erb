@@ -21,22 +21,18 @@
       <ul class="nav-list">
         <li class="nav-tabs logo">Hustler</li>
         <li class="nav-tabs">Welcome, <%= @current_user.name %></li>
-        <li class="nav-tabs">Home</li>
+        <li class="nav-tabs"><%= link_to "Home", home_path %></li>
         <li class="nav-tabs"><%= link_to "Profile", user_path(@current_user) %></li>
         <li class="nav-tabs"><%= link_to "Tasks", tasks_path %></li>
         <li class="nav-tabs"><%= link_to "Reviews", reviews_path %></li>
         <li class="nav-tabs"><%= link_to "Workers", workers_path %></li>
-        <li class="nav-tabs right"><%= link_to "Logout", logout_path, method: :delete %></li>
+        <li class="nav-tabs right"><%= button_to "Logout", logout_path, method: :delete %></li>
       </ul>
     </div>
   <% else %>
     <div class="nav-bar">
       <ul class="nav-list">
         <li class="nav-tabs logo">Hustler</li>
-        <li class="nav-tabs">Home</li>
-        <li class="nav-tabs"><%= link_to "Workers", workers_path %></li>
-        <li class="nav-tabs"><%= link_to "Skills", skills_path %></li>
-        <li class="nav-tabs"><%= link_to "Reviews", reviews_path %></li>
         <li class="nav-tabs right"><%= link_to "Login", login_path %> / <%= link_to "Sign up", new_user_path %></li>
       </ul>
     </div>
