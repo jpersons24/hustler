@@ -208,8 +208,8 @@ body {
 
 .form-container {
    color: white;
-   min-width: 300px;
-   max width: 600px;
+   /* min-width: 300px;
+   max width: 600px; */
    margin: 0px auto;
    margin-top: 200px;
    border-style: ridge;
