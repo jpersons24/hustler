@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%# javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
 
   <% if logged_in? %>
     <div class="nav-bar">
@@ -22,7 +26,7 @@
         <li class="nav-tabs"><%= link_to "Tasks", tasks_path %></li>
         <li class="nav-tabs"><%= link_to "Reviews", reviews_path %></li>
         <li class="nav-tabs"><%= link_to "Workers", workers_path %></li>
-        <li class="nav-tabs right"><%= button_to "Logout", logout_path, method: :delete %></li>
+        <li class="nav-tabs right"><%= link_to "Logout", logout_path, method: :delete %></li>
       </ul>
     </div>
   <% else %>
