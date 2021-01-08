@@ -16,6 +16,8 @@
 
 body {
    background-color: rgb(101, 146, 228);
+   color: white;
+   font-family: 'Nunito', sans-serif;
 }
 
 .nav-bar {
