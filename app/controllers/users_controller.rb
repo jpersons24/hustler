@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params(:name, :username, :password, :bio))
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to home_path
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        redirect_to users_path
+        redirect_to login_path
     end
 
     private

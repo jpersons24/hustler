@@ -1,17 +1,9 @@
-<h3>Your Task History:</h3>
-<div>
-    <ul>
+<h1>Your Task History:</h1>
+
+<div class="user-sp-container">
+    <ul class="ut-sl">
         <% @tasks.each do |t| %>
             <li><%= link_to t.description, task_path(t) %></li>
         <% end %>
     </ul>
-</div><br><br>
-
-<br><br><br>
- <%# THE FOLLOWING BUTTONS ARE ALL FOR CONVINENCES DURING DEVELOPMENT%>
- <%# CAN BE DELETE AFTER WE ARE DONE%>
-<%= button_to "New Task", new_task_path, method: :get %><br><br>
-<%= button_to "See All Users", users_path, method: :get %><br><br>
-<%= button_to "See All Workers", workers_path, method: :get %><br><br>
-<%= button_to "See All Reviews", reviews_path, method: :get %><br><br>
-<%= button_to "See All Skills", skills_path, method: :get %><br><br>
+</div>

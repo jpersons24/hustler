@@ -1,7 +1,7 @@
 <h3>These are all the workers!</h3>
 
-<div>
-   <ul>
+<div class="user-sp-container">
+   <ul class="ut-sl">
       <% @workers.each do |worker| %>
          <li><%= link_to worker.name, worker_path(worker) %></li>
       <% end %>

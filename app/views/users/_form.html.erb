@@ -1,21 +1,29 @@
 <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
-      <p style="color:red;"><%= e %></p>
+      <p style="color:white;"><%= e %></p>
     <% end %>
 <% end %>
 
 <%= form_for @user do |f| %>
-   <%= f.label "Name:" %>
-   <%= f.text_field :name %> <br>
-   <%= f.label "Username:" %>
-   <%= f.text_field :username %> <br>
+  <div class='form-input'>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class='form-input'>
+    <%= f.label "Username:" %>
+    <%= f.text_field :username %>
+  </div>
+   
+   <div class='form-input'>
    <%= f.label "Password:" %>
-   <%= f.password_field :password %> <br>
-   <%= f.label "Bio:" %>
-   <%= f.text_area :bio %> <br>
-   <%= f.submit %>
-<% end %>
+   <%= f.password_field :password %>
+  </div>
 
-<br><br><br>
-<p>OR If you would like to?</p>
-<%= button_to "Back to All Users", users_path, method: :get %><br>
+  <div class='form-input'>
+    <%= f.label "Bio:" %>
+    <%= f.text_area :bio %>
+  </div>
+
+   <%= f.submit class: "form-btn" %>
+<% end %>

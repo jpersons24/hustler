@@ -175,3 +175,51 @@ body {
    margin: 5px 15px;
    background-color: rgb(101, 146, 228);
 }
+
+.ut {
+   border-style: ridge;
+   border-color: white;
+   border-radius: 30px;
+   margin: 5px 15px;
+   background-color: rgb(101, 146, 228);
+}
+
+.ut-sl a {
+   color: white;
+}
+
+.ut-sl a:visited {
+   color: white;
+}
+
+.ut-list li a {
+   color: white;
+}
+
+.ut-list li a:visited {
+   color: white;
+}
+
+.user-nav-list li {
+   list-style-type: none;
+   display: inline-block;
+   margin-bottom: 20px;
+}
+
+.form-container {
+   color: white;
+   min-width: 300px;
+   max width: 600px;
+   margin: 0px auto;
+   margin-top: 200px;
+   border-style: ridge;
+   border-color: #eb801ce0;
+   background-color: #eb801ce0;
+   padding: 20px;
+   border-radius: 30px;
+   text-align: center;
+}
+
+.form-input {
+   margin-top: 10px;
+ }

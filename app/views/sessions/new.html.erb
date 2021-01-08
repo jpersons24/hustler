@@ -1,13 +1,21 @@
-<h1>Login</h1>
+<div class="form-container">
+   <h1>Login</h1>
 
-<% if flash[:error] %>
-   <p style="color:red;"><%= flash[:error] %></p>
-<% end %>
+   <% if flash[:error] %>
+      <p style="color:white;"><%= flash[:error] %></p>
+   <% end %>
 
-<%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %> <br>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%> <br>
-   <%= submit_tag "Login"%>
-<% end %>
+   <%= form_tag '/login' do %>
+      <div class="form-input">
+      <%= label_tag :username%>
+      <%= text_field_tag :username %>
+      </div>
+
+      <div class="form-input">
+      <%= label_tag :password%>
+      <%= password_field_tag :password%>
+      </div>
+
+      <%= submit_tag "Login" %>
+   <% end %>
+</div>

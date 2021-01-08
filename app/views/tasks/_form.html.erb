@@ -1,23 +1,37 @@
 <% if flash[:errors]%>
     <% flash[:errors].each do |e|%>
-        <p style="color:red;"><%= e %></p>
+        <p style="color:white;"><%= e %></p>
     <% end %>
 <% end %>
 
 <%= form_for @task do |f| %>
+    <div class='form-input'>
     <%= f.label "Skill desired:" %>
-    <%= f.collection_select :skill_id, Skill.all, :id, :name %> <br>
-    <%= f.label "Description:" %><br>
-    <%= f.text_area :description %><br>
-    <%= f.label "Cost:" %> $
-    <%= f.number_field :cost, in: 1..1000 %><br>
-    <%= f.label "Deadline:" %>
-    <%= f.date_field :deadline %><br>
-    <%= f.label :worker %><br>
-    <%= f.collection_select :worker_id, Worker.all, :id, :name %><br>
-    <%= f.submit "Request Task" %>
-<% end %><br>
+    <%= f.collection_select :skill_id, Skill.all, :id, :name %>
+    </div>
 
-<%= button_to "Back to All Tasks", tasks_path, method: :get %>
+    <div class='form-input'>
+    <%= f.label "Description:" %>
+    <%= f.text_area :description %>
+    </div>
+
+    <div class='form-input'>
+    <%= f.label "Cost:" %> $
+    <%= f.number_field :cost, in: 1..1000 %>
+    </div>
+
+    <div class='form-input'>
+    <%= f.label "Deadline:" %>
+    <%= f.date_field :deadline %>
+    </div>
+
+    <div class='form-input'>
+    <%= f.label :worker %>
+    <%= f.collection_select :worker_id, Worker.all, :id, :name %>
+    </div>
+
+
+    <%= f.submit class: "form-btn" %>
+<% end %><br>
 
 

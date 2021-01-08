@@ -1,8 +1,35 @@
 <h1><%= @user.name %></h1>
 
+<div class="user-nav">
+    <ul class="user-nav-list">
+        <li><%= button_to 'Edit User', edit_user_path(@user), method: :get %></li>
+        <li><%= button_to "Delete User",  user_path(@user), method: :delete%></li>
+    </ul>
+</div>
+
 <div class="user-sp-container">
     <h2>Bio:</h2>
     <p id="user-bio"><%= @user.bio %></p>
+</div>
+
+<br>
+<%= button_to "New Task", new_task_path, method: :get %>
+
+<br>
+<div class="user-sp-container">
+    <h2><%= @user.name %> task history:</h2>
+    <% @user.tasks.each do |task| %>
+        <div class="ut"> 
+            <ul class="ut-list">
+                <li>Worker: <%= link_to task.worker.name, worker_path(task.worker) %></li>
+                <li>Skill: <%= task.skill.name %>
+                <li>Description: <%= task.description %></li>
+                <li>Cost: $<%= task.cost %></li>
+                <li>Deadline: <%= task.deadline %></li>
+                <li>Completed? <%= task.completed %></li>
+            </ul>
+        </div>
+    <% end %>
 </div>
 
 <div class="user-sp-container">
@@ -12,33 +39,11 @@
         <p>No Reviews by this User yet!</p>
     <% else %>
         <% @user.reviews.each do |r| %>
-            <div class="review-containter">
+            <div class="review-container">
                 <h3><%= r.title %></h3>
+                <p id="review-content">Worker: <%= r.worker.name %></p>
                 <p id="review-content"><%= r.content %></p><br>
             </div>
         <% end %>
     <% end %> 
 </div>
-
-<br>
-<%= button_to "New Task", new_task_path, method: :get %>
-
-<br>
-<div class="user-sp-container">
-    <h2><%= @user.name %> task history:</h2>
-        <ul>
-            <% @user.tasks.each do |task| %>
-                <li>Worker: <%= link_to task.worker.name, worker_path(task.worker) %></li>
-                <li>Skill: <%= task.skill.name %>
-                <li>Description: <%= task.description %></li>
-                <li>Cost: $<%= task.cost %></li>
-                <li>Deadline: <%= task.deadline %></li>
-                <li>Completed? <%= task.completed %></li>
-            <% end %>
-        </ul>
-</div>
-
-<br>
-<%= button_to 'Edit User', edit_user_path(@user), method: :get %>
-<br>
-<%= button_to "Delete User",  user_path(@user), method: :delete%>

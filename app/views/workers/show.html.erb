@@ -1,41 +1,55 @@
-<h3>This is <%= @worker.name %>'s page!</h3>
+<h1><%= @worker.name %></h1>
 
-<h5>Bio: <%= @worker.bio %></h5>
+<div class="user-nav">
+    <ul class="user-nav-list">
+        <li><%= button_to 'Edit Worker', edit_worker_path(@worker), method: :get %></li>
+        <li><%= button_to "Delete",  worker_path(@worker), method: :delete %></li>
+    </ul>
+</div>
 
-<h5>Skills:</h5>
+<div class="user-sp-container">
+    <h2>Bio:</h2>
+    <p id="user-bio"><%= @worker.bio %></p>
+</div>
+
+<div class="user-sp-container">
+    <h2>Skills</h2>
     <% @worker.worker_skills.each do |ws| %>
-        <ul>
-            <li><%= link_to ws.skill.name, skill_path(ws.skill) %> | Remove this skill?
-            <%= button_to "Remove", worker_skill_path(ws) , method: :delete %></li> <br>
-        </ul>
+        <div class="ut">
+            <ul class="ut-list">
+                <li><%= link_to ws.skill.name, skill_path(ws.skill) %>
+                <%= button_to "Remove", worker_skill_path(ws) , method: :delete %></li> <br>
+            </ul>
+        </div>
     <% end %>
-            <%= button_to "Add a Skill", new_worker_skill_path, method: :get %>
+</div>
 
-<h5>Tasks:</h5>
-    <% @worker.tasks.each do |t|%>
-        <ul>
-            <li><%= link_to t.description, task_path(t) %> @ <%= t.deadline %></li>        
-        </ul>
+<%= button_to "Add a Skill", new_worker_skill_path, method: :get %> <br>
+
+<div class="user-sp-container">
+    <h2>Tasks:</h2>
+        <% @worker.tasks.each do |t|%>
+            <ul class="ut-sl">
+                <li><%= link_to t.description, task_path(t) %></li>        
+            </ul>
+        <% end %>
+</div>
+
+<%= button_to 'Add Review', new_review_path, method: :get %> <br>
+
+<div class="user-sp-container">
+    <h2>Reviews:</h2>
+        <% if @worker.reviews.length < 1 %>
+            <p>No Reviews for this worker yet!</p>
+        <% else %>
+            <ul>
+                <% @worker.reviews.each do |r| %>
+                    <div class="review-container">
+                        <li><em><%= r.title %></em> - <%= r.content %></li>
+                        <%# button_to 'Remove Review', method: :delete %>
+                    </div>
+                <% end %>
+            </ul>
     <% end %>
+</div>
 
-<h5>Reviews:</h5>
-    <% if @worker.reviews.length < 1 %>
-        <p>No Reviews for this worker yet!</p>
-    <% else %>
-        <ul>
-            <% @worker.reviews.each do |r| %>
-                <div>
-                    <li><em><%= r.title %></em> - <%= r.content %></li>
-                    <%# button_to 'Remove Review', method: :delete %>
-                </div>
-            <% end %>
-        </ul>
-    <% end %>
-<br>
-<%= button_to 'Add Review', new_review_path, method: :get %>
-
-<br>
-<%= button_to 'Edit Worker', edit_worker_path(@worker), method: :get %>
-
-<br>
-<%= button_to "Delete",  workers_path, method: :delete%>

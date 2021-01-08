@@ -3,7 +3,7 @@ class Worker < ApplicationRecord
     has_many :users, through: :tasks
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
-    has_many :worker_skills
+    has_many :worker_skills, dependent: :destroy
     has_many :skills, through: :worker_skills
 
     validates :name, presence: true

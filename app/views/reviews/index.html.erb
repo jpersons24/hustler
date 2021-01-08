@@ -1,21 +1,12 @@
 <h3>Your Reviews:</h3>
-<div>
-    <ul>
+<div class="user-sp-container">
+    <ul class="ut-list">
         <% @reviews.each do |r|%>
-            <p><%= r.title %></p>
-            <li><%= r.content %></li>
+            <div class="review-containter">
+                <h3><%= r.title %></h3>
+                <p id="review-content">Worker: <%= r.worker.name %></p>
+                <p id="review-content"><%= r.content %></p>
+            </div>
         <% end %>
     </ul>
 </div>
-
-
-
-
-<br><br><br>
- <%# THE FOLLOWING BUTTONS ARE ALL FOR CONVINENCES DURING DEVELOPMENT%>
- <%# CAN BE DELETE AFTER WE ARE DONE%>
-<%= button_to "New Task", new_task_path, method: :get %><br><br>
-<%= button_to "See All Users", users_path, method: :get %><br><br>
-<%= button_to "See All Workers", workers_path, method: :get %><br><br>
-<%= button_to "See All Reviews", reviews_path, method: :get %><br><br>
-<%= button_to "See All Skills", skills_path, method: :get %><br><br>
